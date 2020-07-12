@@ -37,11 +37,11 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ accounts: this.props.web3.accounts });
+        this.setState({ accounts: this.props.data.accounts });
         window.ethereum.on('accountsChanged', (acc) => {
             this.setState({ accounts: acc })
 
-            if (this.props.web3.contract != null) {
+            if (this.props.data.contract != null) {
                 this.call();
             }
         })
@@ -60,15 +60,9 @@ class Home extends React.Component {
     }
     openpage = () => {
         this.setState({ selectedMenuItem: '1', positionofpage: "Welcome", drawerVisible: false });
-        console.log(this.props.web3);
-        const w = this.props.web3.web3;
-        // const instance = new w.eth.Contract(Paaradarshak.abi, owner);
-        // this.props.web3.contract = instance;
-        // this.setState({ contract: instance });
-        // this.setState({ isRootAuth: false });
-        // this.setState({ isMidAuth: false });
-        // this.setState({ isNoAuth: false });
-        // this.call();
+        console.log(this.props.data);
+
+
     }
 
     render() {
@@ -113,9 +107,9 @@ class Home extends React.Component {
                         })}
                     </Menu>
                 </Drawer>
-                {this.state.selectedMenuItem == '0' ? <Landing open={this.openpage} web3={this.props.web3} /> :
-                    this.state.selectedMenuItem == '1' ? <YourFiles web3={this.props.web3} /> :
-                        this.state.selectedMenuItem == '2' ? <SharedFiles web3={this.props.web3} /> :
+                {this.state.selectedMenuItem == '0' ? <Landing open={this.openpage} /> :
+                    this.state.selectedMenuItem == '1' ? <YourFiles data={this.props.data} /> :
+                        this.state.selectedMenuItem == '2' ? <SharedFiles data={this.props.data} /> :
 
 
                             <div></div>}

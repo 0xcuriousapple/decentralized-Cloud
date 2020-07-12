@@ -1,31 +1,10 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import './Dropzone.css'
-import ipfs from '../ipfs'
-export default function MyDropzone() {
+
+export default function MyDropzone(props) {
     const onDrop = useCallback((acceptedFiles) => {
-        acceptedFiles.forEach((file) => {
-            const reader = new FileReader()
-
-            reader.onabort = () => console.log('file reading was aborted')
-            reader.onerror = () => console.log('file reading has failed')
-            reader.onload = () => {
-                // Do whatever you want with the file contents
-                const binaryStr = reader.result
-                console.log(Buffer(binaryStr))
-                ipfs.files.add(Buffer(binaryStr), (err, result) => {
-                    if (err) {
-                        console.log(err);
-                        return
-                    }
-                    else {
-                        console.log(result[0].hash);
-                    }
-                })
-            }
-            reader.readAsArrayBuffer(file)
-        })
-
+        props.upload(acceptedFiles);
     }, [])
     const { getRootProps, getInputProps } = useDropzone({ onDrop })
 

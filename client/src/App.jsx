@@ -7,8 +7,8 @@ import history from "./history";
 import { message } from 'antd';
 import { Spin, Alert } from 'antd';
 //blockchain imports
-import FactoryPaardarshak from "./contracts/factorypaardarshak.json";
-import Paardarshak from "./contracts/paardarshak.json";
+import CloudContract from "./contracts/cloud.json";
+
 import getWeb3 from "./getWeb3";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { Typography, Space } from 'antd';
@@ -16,7 +16,7 @@ import { Modal } from 'antd';
 const { Paragraph } = Typography;
 const { Text, Link } = Typography;
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, parentContract: null, contract: null, showmodal: false };
+  state = { storageValue: 0, web3: null, accounts: null, contract: null, showmodal: false };
 
   componentDidMount = async () => {
     try {
@@ -28,18 +28,18 @@ class App extends Component {
 
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
-      const deployedNetwork = FactoryPaardarshak.networks[networkId];
+      const deployedNetwork = CloudContract.networks[networkId];
 
       if (typeof deployedNetwork === 'undefined') {
         this.setState({ showmodal: true });
       }
 
       const instance = new web3.eth.Contract(
-        FactoryPaardarshak.abi,
+        CloudContract.abi,
         deployedNetwork && deployedNetwork.address,
       );
       console.log(instance)
-      this.setState({ web3, accounts, parentContract: instance });
+      this.setState({ web3, accounts, contract: instance });
 
 
 
@@ -84,7 +84,7 @@ class App extends Component {
         <div className="App">
           <Router history={history}>
             <div>
-              <Home web3={this.state} />
+              <Home data={this.state} />
               {/* <Route exact path="/" component={LoginContainer} />
           <Route exact path="/home" component={HomeContainer} />
           <Route exact path="/snippets" component={SnippetsContainer} /> */}
