@@ -3000,10 +3000,16 @@
       "links": {},
       "address": "0x6A1c6bd9aB7F0e794ad42F12C4cf46DdD8c02353",
       "transactionHash": "0xa6783d5387a8f486d890a87c1f250ff93eef2d1569ac04e882b30102d6683b5a"
+    },
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0xAF303D83cC0A77573d9a17A40076cBD722579909",
+      "transactionHash": "0xca81b25ae31ba92ba5b996f64122aaba231571ca42a85c6c8755fa92ba61e9c1"
     }
   },
   "schemaVersion": "3.0.22",
-  "updatedAt": "2020-07-12T10:19:46.848Z",
+  "updatedAt": "2020-07-12T12:26:07.032Z",
   "networkType": "ethereum",
   "devdoc": {
     "author": "Abhishek Vispute",
