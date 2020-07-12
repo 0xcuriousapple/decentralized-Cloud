@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Button, Modal, Card, Input } from 'antd';
 import HeroImg from './hero.svg';
+import './cloud.css'
 import Logo from './logo.png';
 import { message } from 'antd';
 import { Typography, Space } from 'antd';
@@ -18,11 +19,13 @@ class Landing extends React.Component {
 		return (
 			/* Landing Hero Section */
 			<div className="landing">
+
 				<Row className="hero">
 					<Col sm={24} md={12} className="hero-txt">
 						<img src={Logo} style={{ height: '100px', width: 'auto' }} />
-						<div className="hero-title">Decentralized cloud</div>
+						<div className="hero-title">Decentralized Cloud</div>
 						<div className="hero-details">
+							Your Own Space<br />
 							<div className="tagline">
 								Store and Share files Securely
 							</div>
@@ -37,8 +40,12 @@ class Landing extends React.Component {
 						<img className="hero-img" src={HeroImg} />
 
 					</Col>
+
 				</Row>
 
+				<div className="cloud large cloud-1">
+					<div /><div /><div /><div />
+				</div>
 
 			</div>
 		);

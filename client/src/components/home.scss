@@ -28,7 +28,10 @@
 			}
 		}
 	}
-
+	.feedback{
+		margin : 3px;
+		
+	}
 	.buttons {
 		margin : 4px;
 	}
@@ -87,13 +90,13 @@
 
 	.landing {
 		.hero {
-			height: 88vh;
+			height: 82vh;
 			display: flex;
 			justify-content: space-evenly;
 			align-items: center;
 			.tagline{
 				font-family: 'Sacramento', cursive;
-				font-size: 45px;
+				font-size: 40px;
 			}
 			.hero-txt {
 				text-align: center;

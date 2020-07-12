@@ -8,13 +8,14 @@ import { message } from 'antd';
 import { Spin, Alert } from 'antd';
 //blockchain imports
 import CloudContract from "./contracts/cloud.json";
-
 import getWeb3 from "./getWeb3";
+
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { Typography, Space } from 'antd';
 import { Modal } from 'antd';
 const { Paragraph } = Typography;
 const { Text, Link } = Typography;
+
 class App extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null, showmodal: false };
 
@@ -115,12 +116,10 @@ class App extends Component {
 
           <Space direction="vertical">
 
-            <Text>Please Select Matic TestnetV3 as your network in wallet provider. </Text>
+            <Text>Please Select Matic Mumbai Testnet as your network in wallet provider. </Text>
           </Space>
-          <Text> If you dont have Matic TestnetV3 configured, add following rpc as custom rpc</Text>
-
-          <Paragraph copyable> <a href="https://testnetv3.matic.network" style={{ color: "#1890ff" }}>https://testnetv3.matic.network</a></Paragraph>
-
+          <Text> If you dont have Matic Mumbai Testnet configured, add following rpc as custom rpc</Text>
+          <Paragraph copyable> <a href="https://rpc-mumbai.matic.today" style={{ color: "#1890ff" }}>https://rpc-mumbai.matic.today</a></Paragraph>
           <Text>You can request Matic Tokens from </Text>
           {/* <Link href="https://faucet.matic.network/" target="_blank">
             Matic Faucet

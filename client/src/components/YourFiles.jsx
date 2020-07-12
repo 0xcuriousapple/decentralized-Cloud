@@ -8,9 +8,10 @@ import Dropzone from './Dropzone';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import ipfs from '../ipfs'
 import CryptoJS from '../crypto-js'
+import { Progress } from 'antd';
+
+
 const { Paragraph } = Typography;
-
-
 const { Title, Text } = Typography;
 
 
@@ -36,6 +37,8 @@ class YourFiles extends React.Component {
             password: null,
             acceptedFiles: null,
             record: null,
+            percent: 0,
+            feedback: "This Key will be used to encrypt your file, you can choose different keys for different files"
         }
     }
 
@@ -118,6 +121,22 @@ class YourFiles extends React.Component {
 
     };
     call() {
+        this.setState({
+            tabledata: [],
+            ModalText: 'Content of the modal',
+            visible: false,
+            confirmLoading: false,
+            visiblep: false,
+            confirmLoadingp: false,
+            visiblepd: false,
+            confirmLoadingpd: false,
+            sharedadd: null,
+            password: null,
+            acceptedFiles: null,
+            record: null,
+            percent: 0,
+            feedback: "This Key will be used to encrypt your file, you can choose different keys for different files."
+        });
         const { contract, accounts } = this.props.data;
         contract.methods.getMyFiles().call({ from: accounts[0], gas: 3000000 })
             .then((result) => {
@@ -224,10 +243,15 @@ class YourFiles extends React.Component {
         // this.state.acceptedFiles.forEach((file) => {
         for (let i = 0; i < this.state.acceptedFiles.length; i++) {
             let file = this.state.acceptedFiles[i];
+            this.setState({ feedback: "Reading file from client" });
+            this.setState({ percent: 0 });
+            this.setState({ percent: this.state.percent + 15 });
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')
             reader.onerror = () => console.log('file reading has failed')
             reader.onload = () => {
+                this.setState({ feedback: "Encrypting File" });
+                this.setState({ percent: this.state.percent + 5 });
                 // Do whatever you want with the file contents
                 console.log(reader);
                 const binaryStr = reader.result
@@ -241,6 +265,8 @@ class YourFiles extends React.Component {
                 console.log(encrypted);
                 console.log(Buffer(encrypted));
                 let password = this.state.password;
+                this.setState({ feedback: "Uploading File to IPFS" });
+                this.setState({ percent: this.state.percent + 50 });
                 ipfs.files.add(Buffer(encrypted), (err, result) => {
                     if (err) {
                         console.log(err);
@@ -250,9 +276,14 @@ class YourFiles extends React.Component {
                         console.log(result[0].hash);
                         console.log(password);
                         const { accounts, contract } = this.props.data;
+                        this.setState({ feedback: "Saving IPFS Hash on Smart Contract" });
+                        this.setState({ percent: this.state.percent + 10 });
                         contract.methods.addMyfile(result[0].hash, file.type, file.name).send({ from: accounts[0], gas: 3000000 })
                             .then((receipt) => {
                                 message.success('File Added Sucessfully');
+
+                                this.setState({ feedback: "Done" });
+                                this.setState({ percent: this.state.percent + 20 });
                                 console.log(receipt)
                                 if (i + 1 == this.state.acceptedFiles.length) {
                                     this.setState({
@@ -339,11 +370,13 @@ class YourFiles extends React.Component {
                     onCancel={this.handleCancelp}
                 >
                     <Input.Password
-                        placeholder="input password"
+                        placeholder="key"
                         name='password'
                         onChange={this.handleChange}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     /><br /><br />
+
+                    <Progress type="circle" percent={this.state.percent} width={50} className="feedback" /> &nbsp; &nbsp; &nbsp;<Text strong>{this.state.feedback}</Text>
                 </Modal>
 
 

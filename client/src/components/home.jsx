@@ -4,21 +4,22 @@ import { MenuOutlined } from '@ant-design/icons';
 import { UserOutlined, SoundOutlined, ForkOutlined, FileSearchOutlined, DollarOutlined, HomeOutlined } from '@ant-design/icons';
 import Landing from './landing';
 import YourFiles from './YourFiles'
-import SharedFiles from './SharedFiles'
+import ChatTab from './ChatTab'
 import { GithubOutlined } from '@ant-design/icons';
+import Logo from './logo.png';
 import './home.scss';
 const { Header, Content } = Layout;
 
 const AppMenuMapper = [
     { key: '0', value: 'Home', icon: <HomeOutlined /> },
     { key: '1', value: 'Your Files', icon: <SoundOutlined /> },
-    { key: '2', value: 'Shared Files', icon: <ForkOutlined /> },
+    { key: '2', value: 'Key Exchange', icon: <ForkOutlined /> },
 
 ]
 
 const LandingMenuMapper = [
-    { key: '7', value: 'Docs', link: 'https://www.canva.com/design/DAEAXmeL4A8/Pi9R-fenNHZpV5ns7kStGA/view?utm_content=DAEAXmeL4A8&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton#1' },
-    { key: '8', value: 'View on Github', link: 'https://github.com/abhishekvispute/paaradarshak-chainrunner' },
+    { key: '7', value: 'Docs', link: 'https://docs.google.com/presentation/d/1VjFbRpdo2TxCSc-uY6Fq671_KRXBkoPpbQQf0PSMr9k/edit?usp=sharing' },
+    { key: '8', value: 'View on Github', link: 'https://github.com/abhishekvispute/decentralized-Cloud' },
 ]
 let labels = [
 
@@ -70,7 +71,7 @@ class Home extends React.Component {
             <Layout className="home">
                 <Header className="header">
                     <MenuOutlined className="menu-unfold" type="default" onClick={() => this.handleToggleDrawer(true)} />
-                    <div>{this.state.positionofpage != '' ? this.state.positionofpage : 'Decentralized cloud'}</div>
+                    <div>{this.state.positionofpage != '' ? this.state.positionofpage : <img src={Logo} style={{ height: '50px', width: 'auto' }} />}</div>
                     <Menu className="desktop-menu" theme="dark" mode="horizontal" selectedKeys={[this.state.selectedMenuItem]}>
                         {this.state.selectedMenuItem !== '0' ? AppMenuMapper.map((obj) => {
                             if (parseInt(obj.key) < 5 && parseInt(obj.key) != 1)
@@ -109,7 +110,7 @@ class Home extends React.Component {
                 </Drawer>
                 {this.state.selectedMenuItem == '0' ? <Landing open={this.openpage} /> :
                     this.state.selectedMenuItem == '1' ? <YourFiles data={this.props.data} /> :
-                        this.state.selectedMenuItem == '2' ? <SharedFiles data={this.props.data} /> :
+                        this.state.selectedMenuItem == '2' ? <ChatTab data={this.props.data} /> :
 
 
                             <div></div>}
