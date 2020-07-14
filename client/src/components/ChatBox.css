@@ -1,9 +1,14 @@
+
 .containerchat {
     width: 500px;
+    height: 400px;
+    max-height: 100%;
     max-width: 100%;
     display: flex;
     flex-flow: column;
     margin: 20px;
+    margin-top: 100px;
+    margin-left: 5%;
     border-radius: 5px;
     padding: 0;
     background-color : #1890ff;
@@ -20,9 +25,9 @@
     font-size: 16px;
   }
   .expla {
-    margin: 4px;
     font-size: 17px;
-    font-weight: 100;
+    font-weight: 500;
+    margin-top: 5px;
   }
   hr {
     height: 1px;
@@ -54,7 +59,7 @@
   }
   .chatBox {
     overflow-x: hidden;
-    height: 200px;
+    height: 290px;
     max-height: 70%;
     font-size: 20px;
     padding: 10px 10px 20px 30px;
@@ -65,7 +70,7 @@
     width: 80%;
     background:  #e6f7ff;
     margin: 10px;
-    font-size: 24px;
+    font-size: 15px;
     color: black;
     border: 1px solid #333;
     font-weight: 100;
@@ -85,4 +90,23 @@
   }
   .name {
     margin-right: 20px;
+  }
+  .instructions{
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .deffi {
+    font-size: large;
+  }
+  .inputIns{
+  margin-top: 3px;
+  }
+  .insList{
+    width: 90%;
+  }
+  .insOutput {
+    margin-left: 10px;
+  }
+  .insBut{
+    margin-top: 5px;
   }

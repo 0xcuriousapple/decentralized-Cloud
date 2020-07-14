@@ -9,7 +9,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import ipfs from '../ipfs'
 import CryptoJS from '../crypto-js'
 import { Progress } from 'antd';
-
+import { Divider } from 'antd';
 
 const { Paragraph } = Typography;
 const { Title, Text } = Typography;
@@ -359,6 +359,14 @@ class YourFiles extends React.Component {
                     onCancel={this.handleCancel}
                 >
                     <Input placeholder="Address" name='sharedadd' value={this.state.name} onChange={this.handleChange} /><br /><br />
+                    <Divider orientation="left">Key Exchange</Divider>
+                    <div className="keyInsWrapper">
+                        <Text strong className="keyIns">The user at other end, will require key of this file to see its content.</Text>
+                        <ul className="keyInsL">
+                            <li>You can pass down the key, on yourself.</li>
+                            <li>Or you can use our <Text code>Key exchange</Text> service, which uses Deffi- Hellman Key exchange for transfer of key.</li>
+                        </ul>
+                    </div>
                 </Modal>
 
 
@@ -388,7 +396,7 @@ class YourFiles extends React.Component {
                     onCancel={this.handleCancelpd}
                 >
                     <Input.Password
-                        placeholder="input password"
+                        placeholder="key"
                         name='password'
                         onChange={this.handleChange}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}

@@ -1,10 +1,10 @@
 
 .cloud {
-  -webkit-animation: clouds 60s infinite linear;
-  -moz-animation: clouds 60s infinite linear;
-  -ms-animation: clouds 60s infinite linear;
-  -o-animation: clouds 60s infinite linear;
-  animation: clouds 60s infinite linear;
+  -webkit-animation: clouds 40s infinite linear;
+  -moz-animation: clouds 40s infinite linear;
+  -ms-animation: clouds 40s infinite linear;
+  -o-animation: clouds 40s infinite linear;
+  animation: clouds 40s infinite linear;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -78,34 +78,34 @@
 
 @-webkit-keyframes clouds {
   0% {
-    left: -100%;
+    left: -50%;
   }
   100% {
-    left: 120%;
+    left: 110%;
   }
 }
 @-moz-keyframes clouds {
   0% {
-    left: -100%;
+    left: -50%;
   }
   100% {
-    left: 120%;
+    left: 110%;
   }
 }
 @-ms-keyframes clouds {
   0% {
-    left: -100%;
+    left: -50%;
   }
   100% {
-    left: 120%;
+    left: 110%;
   }
 }
 @keyframes clouds {
   0% {
-    left: -100%;
+    left: -50%;
   }
   100% {
-    left: 120%;
+    left: 110%;
   }
 }
 .cloud-1 {
