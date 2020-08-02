@@ -4,14 +4,14 @@
 <p align="center">
   <img width="100" height="100" src="https://i.ibb.co/XFDgzG0/logo.png"> 
 </p>
-
+### Runner Up Entry at DevFest organised by BITS Goa. </br>
 ## Vision 🌈
 Imagine there is a global drive, there are no hardware (data cables) or software(google photos, iTunes) boundaries for accessing it.
-You can access your data anytime you want from any platform.
+You can access your data anytime you want, from any platform.
 and the best part you are the owner of the data.
-Noone I repeat no one can see your data.
+No one I repeat no one can see your data, (as we encrypt it with AES)
 You can share data with your friends on one click.
-You can roam without thinking that "Oh my hard drive may crash, you should take backup"
+You can roam without thinking that "Oh my hard drive may crash, I should take backup"
 or "This cloud service gonna increase its subscription".
 In contrast, think that you don't even have to pay much for it. just minimal gas costs
 that's what **Decentralized Cloud** is......!
