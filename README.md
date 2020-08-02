@@ -4,7 +4,9 @@
 <p align="center">
   <img width="100" height="100" src="https://i.ibb.co/XFDgzG0/logo.png"> 
 </p>
-### Runner Up Entry at DevFest organised by BITS Goa. </br>
+
+
+
 ## Vision 🌈
 Imagine there is a global drive, there are no hardware (data cables) or software(google photos, iTunes) boundaries for accessing it.
 You can access your data anytime you want, from any platform.
@@ -17,7 +19,7 @@ In contrast, think that you don't even have to pay much for it. just minimal gas
 that's what **Decentralized Cloud** is......!
 
 ## Links
-
+- ### Runner Up Entry at DevFest organised by BITS Goa. </br>
 - [Presentation/ Algos](https://docs.google.com/presentation/d/1VjFbRpdo2TxCSc-uY6Fq671_KRXBkoPpbQQf0PSMr9k/edit#slide=id.g25f6af9dd6_0_0)
 - [Live on : https://decentcloud.herokuapp.com/](https://decentcloud.herokuapp.com/)
 - Deployed on Matic Mumbai Testnet
